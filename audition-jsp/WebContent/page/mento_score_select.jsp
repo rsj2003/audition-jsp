@@ -34,12 +34,15 @@
         	}else {
         		rank = "F";
         	}
+        	String year = rs.getString(4).substring(0,4);
+        	String month = rs.getString(4).substring(4,6);
+        	String day = rs.getString(4).substring(6,8);
             %>
                 <tr>
                     <td><% out.println(rs.getString(1));%></td>
                     <td><% out.println(rs.getString(2));%></td>
                     <td><% out.println(rs.getString(3));%></td>
-                    <td><% out.println(rs.getString(4));%></td>
+                    <td><% out.println(String.format("%s년 %s월 %s일", year, month, day));%></td>
                     <td><% out.println(rs.getString(5));%></td>
                     <td><% out.println(rank);%></td>
                     <td><% out.println(rs.getString(6));%></td>

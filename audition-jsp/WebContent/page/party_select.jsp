@@ -22,11 +22,14 @@
                 	   "		TBL_ARTIST_201905 ";
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {
+        	String year = rs.getString(3).substring(0,4);
+        	String month = rs.getString(3).substring(4,6);
+        	String day = rs.getString(3).substring(6,8);
             %>
                 <tr>
                     <td><% out.println(rs.getString(1));%></td>
                     <td><% out.println(rs.getString(2));%></td>
-                    <td><% out.println(rs.getString(3));%></td>
+                    <td><% out.println(String.format("%s년 %s월 %s일", year, month, day));%></td>
                     <td><% out.println(rs.getString(4).equals("F") ? "여" : "남"); %></td>
                     <td><% if(rs.getString(5).equals("1")) {out.println("보컬");}
                     	   else if(rs.getString(5).equals("2")) {out.println("댄스");}
